@@ -88,6 +88,7 @@ int SimpleTimer::setTimer(long d, timer_callback f, int n) {
     maxNumRuns[numTimers] = n;
     enabled[numTimers] = true;
     numRuns[numTimers] = 0;
+		prev_millis[numTimers] = millis();
 
     numTimers++;
 
