@@ -164,3 +164,12 @@ void SimpleTimer::toggle(int numTimer) {
 int SimpleTimer::getNumTimers() {
     return numTimers;
 }
+
+int SimpleTimer::getSecondsLeft(int numTimer) {
+		const int seconds = delays[numTimer] - (millis() - prev_millis[numTimer]);
+		if (seconds > 0) {
+			return seconds / 1000;
+		} else {
+			return 0;
+		}
+}

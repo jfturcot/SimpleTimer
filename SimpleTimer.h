@@ -74,6 +74,10 @@ public:
     // returns the number of used timers
     int getNumTimers();
 
+		// returns the seconds left before the next event
+		// for the specified timer
+    int getSecondsLeft(int numTimer);
+
 private:
     // value returned by the millis() function
     // in the previous run() call
