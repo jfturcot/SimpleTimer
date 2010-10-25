@@ -26,8 +26,9 @@
 #include "SimpleTimer.h"
 
 
-SimpleTimer::SimpleTimer() {
+SimpleTimer::SimpleTimer(const int timer_id) {
     long current_millis = millis();
+		id = timer_id;
 
     for (int i = 0; i < MAX_TIMERS; i++) {
         enabled[i] = false;
@@ -59,11 +60,11 @@ void SimpleTimer::run() {
 
                 // "run forever" timers must always be executed
                 if (maxNumRuns[i] == RUN_FOREVER) {
-                    (*callbacks[i])();
+                    (*callbacks[i])(id);
                 }
                 // other timers get executed the specified number of times
                 else if (numRuns[i] < maxNumRuns[i]) {
-                    (*callbacks[i])();
+                    (*callbacks[i])(id);
                     numRuns[i]++;
 
                     // after the last run, delete the timer

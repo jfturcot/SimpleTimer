@@ -28,7 +28,7 @@
 
 #include <WProgram.h>
 
-typedef void (*timer_callback)(void);
+typedef void (*timer_callback)(int);
 
 class SimpleTimer {
 
@@ -41,7 +41,7 @@ public:
     const static int RUN_ONCE = 1;
 
     // constructor
-    SimpleTimer();
+    SimpleTimer(const int timer_id);
 
     // this function must be called inside loop()
     void run();
@@ -100,6 +100,9 @@ private:
 
     // actual number of timers in use
     int numTimers;
+
+		// id of the timer
+		int id;
 };
 
 #endif
