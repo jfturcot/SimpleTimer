@@ -76,7 +76,7 @@ public:
 
 		// returns the miliseconds left before the next event
 		// for the specified timer
-    int getTimeLeft(int numTimer);
+    long getTimeLeft(int numTimer);
 
 private:
     // value returned by the millis() function

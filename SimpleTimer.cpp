@@ -166,8 +166,8 @@ int SimpleTimer::getNumTimers() {
     return numTimers;
 }
 
-int SimpleTimer::getTimeLeft(int numTimer) {
-		const int seconds = delays[numTimer] - (millis() - prev_millis[numTimer]);
+long SimpleTimer::getTimeLeft(int numTimer) {
+		const long seconds = delays[numTimer] - (millis() - prev_millis[numTimer]);
 		if (seconds > 0) {
 			return seconds;
 		} else {
